@@ -1,0 +1,10 @@
+# Deploying to Vercel
+
+This is an OpenCode deployment handoff, not proof of an existing deployment. Vercel detects the `app = FastAPI(...)` instance in root `main.py`. See [Vercel's FastAPI guide](https://vercel.com/docs/frameworks/backend/fastapi) and [Python runtime documentation](https://vercel.com/docs/functions/runtimes/python). No build command is needed for the static UI. `requirements.txt` is intentionally small; do not install `requirements-training.txt` during deployment. Training is a separate local/offline operation.
+
+1. Push the repository to GitHub and import it into Vercel (or link it with the Vercel CLI). Select the repository root. Vercel should auto-detect FastAPI; verify its framework detection and Python version in project settings.
+2. Ensure `backend/models/decision_tree.json` and `ml/results.json` are included in the deployment. Do not include data files, credentials or local virtual environments. No environment variables are required by the app.
+3. Deploy a preview. Check `/`, `/assets/style.css`, `/api/health`, `/api/model`, `/api/results`, `/docs`, and send a valid sample to `/api/predict`. Confirm all are served from the same origin and responses match the local model. Diagnose missing file/bundle errors in function logs rather than silently substituting predictions.
+4. Validate on desktop and mobile and check invalid input returns 422. If the browser UI, static assets or JSON data are missing in the deployed build, inspect Vercel's build output and the current static asset/bundle configuration; do not report deployment as successful until these checks pass. Only promote after the owner approves.
+
+The default Python Function bundle limit is documented as 500 MB; this app deliberately avoids shipping training libraries and datasets. The runtime may have cold starts and request-duration limits; never run training in a request handler. No user authentication, rate limiting, monitoring, retention guarantees, or production-grade security have been configured. Add these and an independent evaluation before any real-world deployment. The tree score is not calibrated, and the app is a research prototype.
