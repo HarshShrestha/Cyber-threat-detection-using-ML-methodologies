@@ -1,0 +1,211 @@
+{
+  "method": {
+    "sample_size_per_dataset": 15000,
+    "split": "stratified 80/20, random_state=42",
+    "cv": "3-fold stratified macro F1 on training data; scaler and SMOTE fit inside each fold",
+    "trees": 60,
+    "random_state": 42,
+    "tuning": "none",
+    "training_data": "public Kaggle parquet datasets"
+  },
+  "versions": {
+    "python": "3.13.15",
+    "sklearn": "1.9.1",
+    "xgboost": "3.4.1",
+    "imbalanced_learn": "0.14.2"
+  },
+  "datasets": {
+    "NF-UNSW-NB15": {
+      "source_rows": 1484211,
+      "sample_rows": 15000,
+      "train_rows": 12000,
+      "test_rows": 3000,
+      "sample_class_counts": {
+        "0": 14362,
+        "1": 638
+      },
+      "test_class_counts": {
+        "0": 2872,
+        "1": 128
+      },
+      "models": {
+        "Random Forest": {
+          "accuracy": 0.977,
+          "f1": 0.780952380952381,
+          "precision": 0.6577540106951871,
+          "recall": 0.9609375,
+          "roc_auc": 0.9927261055013927,
+          "false_alarm_rate": 0.022284122562674095,
+          "cv_macro_f1_mean": 0.8928239820768477,
+          "cv_macro_f1_std": 0.011777793031812055,
+          "confusion_matrix": {
+            "tn": 2808,
+            "fp": 64,
+            "fn": 5,
+            "tp": 123
+          }
+        },
+        "Decision Tree": {
+          "accuracy": 0.976,
+          "f1": 0.7647058823529411,
+          "precision": 0.6573033707865169,
+          "recall": 0.9140625,
+          "roc_auc": 0.9505244603064067,
+          "false_alarm_rate": 0.021239554317548745,
+          "cv_macro_f1_mean": 0.882759224335694,
+          "cv_macro_f1_std": 0.016223508215318976,
+          "confusion_matrix": {
+            "tn": 2811,
+            "fp": 61,
+            "fn": 11,
+            "tp": 117
+          }
+        },
+        "XGBoost": {
+          "accuracy": 0.9756666666666667,
+          "f1": 0.7711598746081505,
+          "precision": 0.643979057591623,
+          "recall": 0.9609375,
+          "roc_auc": 0.9934959305362117,
+          "false_alarm_rate": 0.023676880222841225,
+          "cv_macro_f1_mean": 0.8850943326572125,
+          "cv_macro_f1_std": 0.011928673951692998,
+          "confusion_matrix": {
+            "tn": 2804,
+            "fp": 68,
+            "fn": 5,
+            "tp": 123
+          }
+        }
+      }
+    },
+    "NF-BoT-IoT": {
+      "source_rows": 595376,
+      "sample_rows": 15000,
+      "train_rows": 12000,
+      "test_rows": 3000,
+      "sample_class_counts": {
+        "1": 14652,
+        "0": 348
+      },
+      "test_class_counts": {
+        "1": 2930,
+        "0": 70
+      },
+      "models": {
+        "Random Forest": {
+          "accuracy": 0.9446666666666667,
+          "f1": 0.9708669708669708,
+          "precision": 0.9992774566473989,
+          "recall": 0.9440273037542662,
+          "roc_auc": 0.9882715748415407,
+          "false_alarm_rate": 0.02857142857142857,
+          "cv_macro_f1_mean": 0.6998518649647739,
+          "cv_macro_f1_std": 0.007469011901706934,
+          "confusion_matrix": {
+            "tn": 68,
+            "fp": 2,
+            "fn": 164,
+            "tp": 2766
+          }
+        },
+        "Decision Tree": {
+          "accuracy": 0.9456666666666667,
+          "f1": 0.9713984909633269,
+          "precision": 0.9996388587937883,
+          "recall": 0.9447098976109215,
+          "roc_auc": 0.9828937103851779,
+          "false_alarm_rate": 0.014285714285714285,
+          "cv_macro_f1_mean": 0.6990597134439422,
+          "cv_macro_f1_std": 0.006191197865821714,
+          "confusion_matrix": {
+            "tn": 69,
+            "fp": 1,
+            "fn": 162,
+            "tp": 2768
+          }
+        },
+        "XGBoost": {
+          "accuracy": 0.9426666666666667,
+          "f1": 0.9697821503865074,
+          "precision": 0.999275887038378,
+          "recall": 0.9419795221843004,
+          "roc_auc": 0.9883861530960506,
+          "false_alarm_rate": 0.02857142857142857,
+          "cv_macro_f1_mean": 0.7006790141796149,
+          "cv_macro_f1_std": 0.007919306990056663,
+          "confusion_matrix": {
+            "tn": 68,
+            "fp": 2,
+            "fn": 170,
+            "tp": 2760
+          }
+        }
+      }
+    },
+    "NF-ToN-IoT": {
+      "source_rows": 1157994,
+      "sample_rows": 15000,
+      "train_rows": 12000,
+      "test_rows": 3000,
+      "sample_class_counts": {
+        "1": 12429,
+        "0": 2571
+      },
+      "test_class_counts": {
+        "1": 2486,
+        "0": 514
+      },
+      "models": {
+        "Random Forest": {
+          "accuracy": 0.9906666666666667,
+          "f1": 0.9943752511048614,
+          "precision": 0.9931781701444623,
+          "recall": 0.995575221238938,
+          "roc_auc": 0.9971709276227028,
+          "false_alarm_rate": 0.033073929961089495,
+          "cv_macro_f1_mean": 0.9845027220470692,
+          "cv_macro_f1_std": 0.0020428845960173063,
+          "confusion_matrix": {
+            "tn": 497,
+            "fp": 17,
+            "fn": 11,
+            "tp": 2475
+          }
+        },
+        "Decision Tree": {
+          "accuracy": 0.9906666666666667,
+          "f1": 0.9943707277844793,
+          "precision": 0.9939710610932476,
+          "recall": 0.994770716009654,
+          "roc_auc": 0.9793540323868136,
+          "false_alarm_rate": 0.029182879377431907,
+          "cv_macro_f1_mean": 0.9774242558053011,
+          "cv_macro_f1_std": 0.0025142650026527963,
+          "confusion_matrix": {
+            "tn": 499,
+            "fp": 15,
+            "fn": 13,
+            "tp": 2473
+          }
+        },
+        "XGBoost": {
+          "accuracy": 0.988,
+          "f1": 0.992744860943168,
+          "precision": 0.9947495961227787,
+          "recall": 0.9907481898632341,
+          "roc_auc": 0.9979742589630334,
+          "false_alarm_rate": 0.02529182879377432,
+          "cv_macro_f1_mean": 0.9795475925254028,
+          "cv_macro_f1_std": 0.0009436619232810019,
+          "confusion_matrix": {
+            "tn": 501,
+            "fp": 13,
+            "fn": 23,
+            "tp": 2463
+          }
+        }
+      }
+    }
+  }
+}

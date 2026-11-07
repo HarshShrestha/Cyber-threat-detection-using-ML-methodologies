@@ -1,6 +1,6 @@
 # Cyber threat detection using ML methodologies
 
-An experimental NetFlow intrusion-detection benchmark and FastAPI interface. The original Google Colab notebook is preserved, without cell outputs, in `notebooks/`. A separate reproducibility script benchmarks three model families on three public datasets and exports a small decision tree for the web application.
+An experimental NetFlow intrusion-detection benchmark and FastAPI interface. The original Google Colab notebook is preserved, without cell outputs or personal Colab metadata, in `notebooks/`. A separate reproducibility script benchmarks three model families on three public datasets and exports a small decision tree for the web application.
 
 > Research prototype only. It is not a real-time monitoring system, a calibrated risk model, or a security control. Predictions and random-split benchmark scores should not be used to make security decisions.
 
